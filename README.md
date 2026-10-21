@@ -12,7 +12,7 @@ Abgeleitet von [ESP32-RC-Sound V7](https://github.com/mnorden81/mnorden81-ESP32-
 
 **Aktuelle Version:** noch keine (Grundgerüst)
 
-Projektplan: siehe `docs/`.
+Projektbeschreibung: [`docs/Projektbeschreibung.docx`](docs/Projektbeschreibung.docx) · Projektplan: [`docs/projektplan.md`](docs/projektplan.md)
 
 ## Flash-Aufteilung (4 MB)
 
@@ -50,7 +50,7 @@ Der MAX98357A wird direkt auf die Versorgungsreihe des SuperMini gelötet (VIN-5
 
 - `firmware/` PlatformIO-Projekt
 - `hardware/` Schaltplan, PCB
-- `docs/` Pinout, Changelog
+- `docs/` Projektbeschreibung, Projektplan, später Pinout und Changelog
 - `backups/` funktionierende Stände (nur lokal, nicht im Repo)
 
 ## Lizenz
