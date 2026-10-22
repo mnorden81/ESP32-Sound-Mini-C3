@@ -5,7 +5,7 @@ Abgeleitet von [ESP32-RC-Sound V7](https://github.com/mnorden81/mnorden81-ESP32-
 
 - **Eingang:** nur CRSF (Port A), busbasiert
 - **Sounds:** Motor (Start/Loop/Stopp) + 4 Zusatzsounds
-- **Speicher:** Flash (LittleFS), SD-Karte optional
+- **Speicher:** Flash (LittleFS), keine SD-Karte
 - **Ports:** Port A (CRSF), Port B (zweiter UART), Port C (GPS per SoftwareSerial; der C3 hat nur zwei Hardware-UARTs)
 - **Web-UI:** Sound-Upload und OTA-Update per WLAN
 - **Verstärker:** MAX98357A (I2S)
