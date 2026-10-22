@@ -11,7 +11,7 @@ Grundlage: Sound-Firmware v7.18 (`mnorden81-ESP32-Sound-bidirectional_code`, `ma
 | Eingang | SBUS-Familie, CRSF, PWM, GPIO-Pins | **nur CRSF** (Port A) |
 | Schaltquellen | BUS-Kanal, PWM, Pin, Einkanal (WM), MKan, Dauer | BUS-Kanal Low/High, Einkanal (WM-Adresse), MKan (CRSF-Gruppenadressen), Dauer, Aus |
 | Sounds | Motor + 24 | **Motor (Start/Loop/Stopp) + 4** |
-| Speicher | SD-Karte | **Flash (LittleFS)**, SD optional |
+| Speicher | SD-Karte | **Flash (LittleFS)**, keine SD-Karte |
 | Port B (2. UART) | Aus / S.Port / CRSF / Hott / Raw | bleibt (Hott-Platzhalter fällt weg, bis es einen Treiber gibt) |
 | Port C (GPS) | SoftwareSerial | bleibt |
 | Hardware-Varianten V1/V2/V3 | ja | entfällt, ein Pinout je Board |
@@ -46,7 +46,9 @@ Typischer Bedarf: Start 3 s, Loop 2 s, Stopp 2 s, 4 Sounds à 2 s = 15 s ≈ **0
 
 Die heutige Firmware belegt ≈ 1,0 MB (77,7 % von 1,25 MB). Ohne SBUS, 20 Slots und Varianten wird die Mini-Firmware kleiner und passt auch mit WLAN und OTA sicher in Variante A. Empfehlung: **A**, B als Ausweichoption. Mit 8/16 MB Flash wächst nur die Sound-Partition.
 
-## 4. Speicher: Flash oder SD
+## 4. Speicher: Flash
+
+> Überholt: Die Mini-Module haben keine SD-Karte, Sounds und Einstellungs-Backups liegen nur im Flash. Die Auswahl Flash/SD/Auto unten entfällt.
 
 - Eine Einstellung `Speicherort`: **Flash** / **SD** / **Auto** (SD wenn Karte steckt, sonst Flash).
 - Technisch: Der Sound-Player bekommt statt fest `SD` ein `fs::FS&`. SD und LittleFS liefern denselben Dateityp, die Abspiel- und Puffer-Logik (Doppelpuffer, Lese-Task) bleibt gleich.
@@ -83,7 +85,7 @@ Die CRSF-Bibliothek kommt aus dem Thread „gemeinsame Bibliothek“ und liegt, 
 1. Repo anlegen, lokalen Ordner `Sound/Mini` damit verbinden, leeres PlatformIO-Gerüst mit grüner CI.
 2. Code aus v7.18 übernehmen und kürzen: SBUS, PWM/Pin, Varianten V1/V2, Sounds 5–24, Hott-Platzhalter raus. Ziel: baut grün.
 3. CRSF auf die gemeinsame Bibliothek umstellen (sobald sie steht).
-4. Speicher-Abstraktion Flash/SD/Auto, Partitionstabelle, `data/`-Upload.
+4. Sound-Speicher im Flash (LittleFS), Partitionstabelle, `data/`-Upload.
 5. Board-Environment und Pinout (S3-Zero), CRSF auf beliebigem UART statt fest `Serial2`.
 6. Neue Lua-Parametertabelle (Motor + 4 Sounds + Einstellungen) und schlanke Web-UI.
 7. Hardwaretest durch dich; danach Version v1.00 und Backup.
