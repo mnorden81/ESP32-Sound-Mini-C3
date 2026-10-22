@@ -1,6 +1,7 @@
 // Soundmodul Mini (C3) - Grundgeruest
 // Folgeschritte: Code aus ESP32-RC-Sound v7.18 uebernehmen und kuerzen,
-// CRSF-Bibliothek einbinden, Speicher Flash/SD, Pinout.
+// CRSF-Bibliothek einbinden, Speicher Flash (keine SD-Karte, Einstellungs-
+// Backups im Flash wie beim Mini S3, RC_Common config_backup), Pinout.
 
 #include <Arduino.h>
 
